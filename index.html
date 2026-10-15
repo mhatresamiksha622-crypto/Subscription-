@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>STREAMORA | Entertainment Reimagined</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="navbar">
+    <a class="logo" href="#">STREAM<span>ORA</span></a>
+
+    <nav>
+        <a href="#discover">Discover</a>
+        <a href="#stories">Stories</a>
+        <a href="#quiz">Mind Lab</a>
+        <a href="#plans">Membership</a>
+    </nav>
+
+    <button class="profile" onclick="showProfile()">
+        My Space
+    </button>
+</header>
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">YOUR MOOD. YOUR UNIVERSE.</p>
+
+        <h1>Entertainment<br>
+            That Understands <span>You.</span>
+        </h1>
+
+        <p class="hero-text">
+            Discover stories, explore new worlds and
+            challenge your mind. Your next adventure
+            starts with how you feel.
+        </p>
+
+        <button class="primary-btn"
+                onclick="document.getElementById('discover')
+                .scrollIntoView({behavior:'smooth'})">
+            Explore My Universe →
+        </button>
+
+        <div class="hero-stats">
+            <div>
+                <strong>5+</strong>
+                <small>Unique Experiences</small>
+            </div>
+
+            <div>
+                <strong>3</strong>
+                <small>Membership Plans</small>
+            </div>
+
+            <div>
+                <strong>∞</strong>
+                <small>Possibilities</small>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-art">
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+
+        <div class="planet">
+            <span>✦</span>
+        </div>
+
+        <div class="floating-card">
+            <span>✧</span>
+            <div>
+                <strong>Your next world awaits</strong>
+                <small>Choose your own adventure</small>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="discover">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">PERSONALIZED FOR YOU</p>
+            <h2>What is your mood today?</h2>
+        </div>
+
+        <p class="muted">
+            Pick a feeling to discover your next experience.
+        </p>
+    </div>
+
+    <div class="mood-grid">
+        <button class="mood-card"
+                onclick="selectMood('Happy', this)">
+            <span>☀️</span>
+            <strong>Happy</strong>
+            <small>Feel-good adventures</small>
+        </button>
+
+        <button class="mood-card"
+                onclick="selectMood('Curious', this)">
+            <span>🔭</span>
+            <strong>Curious</strong>
+            <small>Discover the unknown</small>
+        </button>
+
+        <button class="mood-card"
+                onclick="selectMood('Excited', this)">
+            <span>⚡</span>
+            <strong>Excited</strong>
+            <small>Thrills and mysteries</small>
+        </button>
+    </div>
+
+    <div class="section-heading content-heading">
+        <h2 id="contentTitle">Explore the Universe</h2>
+
+        <button class="text-btn" onclick="loadContent()">
+            Show All →
+        </button>
+    </div>
+
+    <div class="content-grid" id="contentGrid">
+        <p class="muted">Loading experiences...</p>
+    </div>
+</section>
+
+<section class="story-section" id="stories">
+    <div class="story-info">
+        <p class="eyebrow">YOUR CHOICES MATTER</p>
+
+        <h2>Every choice<br>changes the story.</h2>
+
+        <p class="muted">
+            Enter an interactive universe where you decide
+            what happens next. No two journeys need to be
+            the same.
+        </p>
+
+        <button class="primary-btn" onclick="startStory()">
+            Start Your Story →
+        </button>
+    </div>
+
+    <div class="story-box">
+        <div class="story-icon">🌌</div>
+
+        <p class="eyebrow">CHAPTER 01</p>
+
+        <h3 id="storyTitle">The Last Signal</h3>
+
+        <p id="storyText">
+            At midnight, your device receives a mysterious
+            signal from an unknown planet.
+        </p>
+
+        <div id="storyChoices" class="story-choices">
+            <button onclick="chooseStory(1)">
+                Investigate the signal
+            </button>
+
+            <button onclick="chooseStory(2)">
+                Contact mission control
+            </button>
+        </div>
+
+        <button class="reset-btn" onclick="startStory()">
+            Restart Story ↻
+        </button>
+    </div>
+</section>
+
+<section class="section quiz-section" id="quiz">
+    <div class="quiz-card">
+        <div class="quiz-icon">🧠</div>
+
+        <p class="eyebrow">STREAMORA MIND LAB</p>
+
+        <h2>Entertainment meets intelligence.</h2>
+
+        <p class="muted">
+            Take a quick challenge, test your knowledge
+            and collect points.
+        </p>
+
+        <h3 id="quizQuestion">
+            Which planet is known as the Red Planet?
+        </h3>
+
+        <div class="quiz-options">
+            <button onclick="answerQuiz('Earth')">Earth</button>
+            <button onclick="answerQuiz('Mars')">Mars</button>
+            <button onclick="answerQuiz('Venus')">Venus</button>
+        </div>
+
+        <p id="quizResult" aria-live="polite"></p>
+
+        <p class="points">
+            Your Points: <strong id="points">0</strong>
+        </p>
+
+        <button class="text-btn" onclick="resetQuiz()">
+            Try Again ↻
+        </button>
+    </div>
+</section>
+
+<section class="section plans-section" id="plans">
+    <div class="center-heading">
+        <p class="eyebrow">CHOOSE YOUR EXPERIENCE</p>
+        <h2>One universe. Your membership.</h2>
+
+        <p class="muted">
+            Explore the available demo membership plans.
+        </p>
+    </div>
+
+    <div class="plans-grid" id="plansGrid">
+        <p class="muted">Loading membership plans...</p>
+    </div>
+
+    <p class="disclaimer">
+        Demo project only. No real payment is collected.
+    </p>
+</section>
+
+<footer>
+    <a class="logo" href="#">STREAM<span>ORA</span></a>
+
+    <p>More than watching. A universe of experiences.</p>
+
+    <small>© 2026 STREAMORA · College Project Demo</small>
+</footer>
+
+<div class="toast" id="toast" role="status"></div>
+
+<script src="script.js"></script>
+
+</body>
+                                          </html>
